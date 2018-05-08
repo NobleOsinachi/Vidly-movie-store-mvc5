@@ -7,6 +7,11 @@
     <h1>Movies</h1>
 
 </div>
+
+<div class="mb-3">
+    @Html.ActionLink("Add New Movie", "MovieForm", null, new { @class = "btn btn-primary" })
+</div>
+
 <div>
     @if (Model.Count == 0)
     {
@@ -15,11 +20,14 @@
     <table>
         <tr>
             <th>Movie</th>
+            <th>Genre</th>
+
         </tr>
         @foreach (var movie in Model)
         {
             <tr>
-                <td>@Html.ActionLink(@movie.name, "Details")</td>
+                <td>@Html.ActionLink(@movie.Name, "Edit", new { id = @movie.id })</td>
+                <td>@movie.Genre.GenreName</td>
             </tr>
         }
     </table>

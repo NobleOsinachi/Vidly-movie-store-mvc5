@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,21 +9,24 @@ namespace Vidly.Models
 {
     public class Movies
     {
+        [Key]
         public int id { get; set; }
-        public string name { get; set; }
 
+        [Required]
+        public string Name { get; set; }
 
-        public List<Movies> movies {
-            get {
-                return
-                 new List<Movies>
-                 {
-                    new Movies { id = 1, name = "BlackList" },
-                    new Movies { id = 2, name = "Grasshopper" },
-                    new Movies { id = 3, name = "Avengers" }
-                 };
-                }
-        }
+        [Display(Name ="Release Date")]
+        public DateTime ReleasedDate { get; set; }
+
+        public DateTime DateAdded { get; set; }
+
+        [Display(Name = "Number in Stock")]
+        public int NumberInStock { get; set; }
+
+        public int GenreId { get; set; }
+
+        [ForeignKey("GenreId")]
+        public Genre Genre { get; set; }
 
     }
 }

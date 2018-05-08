@@ -1,0 +1,33 @@
+﻿@model Vidly.Models.Customers
+
+@{
+    ViewBag.Title = "Customer Details";
+
+    var date = Model.BirthDate.ToString().Split(' ');
+    var birthDay = date[0];
+}
+
+<div class="pt-3">
+
+    <h1>@Model.Name</h1>
+
+</div>
+
+<div>
+    <ul>
+        <li>
+            Membership Type:
+            @Model.MembershipType.Name
+        </li>
+        <li>
+            @if (Model.BirthDate != null)
+            {
+                @: Biirthday: @birthDay
+
+            }
+
+    </li>
+</ul>
+</div>
+
+

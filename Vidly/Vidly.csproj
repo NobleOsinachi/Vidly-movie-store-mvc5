@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -52,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -162,6 +167,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -174,11 +180,77 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805041352404_InitialMigration.cs" />
+    <Compile Include="Migrations\201805041352404_InitialMigration.Designer.cs">
+      <DependentUpon>201805041352404_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805041507548_AddMembershipTypeToTable.cs" />
+    <Compile Include="Migrations\201805041507548_AddMembershipTypeToTable.Designer.cs">
+      <DependentUpon>201805041507548_AddMembershipTypeToTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805041534178_AddRecordToMembershipTypeTable.cs" />
+    <Compile Include="Migrations\201805041534178_AddRecordToMembershipTypeTable.Designer.cs">
+      <DependentUpon>201805041534178_AddRecordToMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051316207_AddNameColumnToMembershipTypeTable.cs" />
+    <Compile Include="Migrations\201805051316207_AddNameColumnToMembershipTypeTable.Designer.cs">
+      <DependentUpon>201805051316207_AddNameColumnToMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051331149_UpdateRecordInMembershipTypeTable.cs" />
+    <Compile Include="Migrations\201805051331149_UpdateRecordInMembershipTypeTable.Designer.cs">
+      <DependentUpon>201805051331149_UpdateRecordInMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051343167_AddBirthDateColumnToCustomerTable.cs" />
+    <Compile Include="Migrations\201805051343167_AddBirthDateColumnToCustomerTable.Designer.cs">
+      <DependentUpon>201805051343167_AddBirthDateColumnToCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051530543_CommitChangesToDatabase.cs" />
+    <Compile Include="Migrations\201805051530543_CommitChangesToDatabase.Designer.cs">
+      <DependentUpon>201805051530543_CommitChangesToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051538043_AddRecordToGenreTable.cs" />
+    <Compile Include="Migrations\201805051538043_AddRecordToGenreTable.Designer.cs">
+      <DependentUpon>201805051538043_AddRecordToGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805051609207_AddColumnsToMovieTable.cs" />
+    <Compile Include="Migrations\201805051609207_AddColumnsToMovieTable.Designer.cs">
+      <DependentUpon>201805051609207_AddColumnsToMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805061056302_UpdateNameColumnInCustomerTable.cs" />
+    <Compile Include="Migrations\201805061056302_UpdateNameColumnInCustomerTable.Designer.cs">
+      <DependentUpon>201805061056302_UpdateNameColumnInCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805061118377_ChangeNameColumn.cs" />
+    <Compile Include="Migrations\201805061118377_ChangeNameColumn.Designer.cs">
+      <DependentUpon>201805061118377_ChangeNameColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805061153317_UpdateOfColumnInCustomerTable.cs" />
+    <Compile Include="Migrations\201805061153317_UpdateOfColumnInCustomerTable.Designer.cs">
+      <DependentUpon>201805061153317_UpdateOfColumnInCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805061255263_UpdateReordInMembershipTypeTable.cs" />
+    <Compile Include="Migrations\201805061255263_UpdateReordInMembershipTypeTable.Designer.cs">
+      <DependentUpon>201805061255263_UpdateReordInMembershipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805071336278_ChangeNameColumnInMovieTable.cs" />
+    <Compile Include="Migrations\201805071336278_ChangeNameColumnInMovieTable.Designer.cs">
+      <DependentUpon>201805071336278_ChangeNameColumnInMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805071417232_AddGenreIdColumnToMovieTable.cs" />
+    <Compile Include="Migrations\201805071417232_AddGenreIdColumnToMovieTable.Designer.cs">
+      <DependentUpon>201805071417232_AddGenreIdColumnToMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\CustomerStoreViewModel.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\MovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -216,7 +288,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Customer\About.cshtml" />
-    <Content Include="Views\Customer\Contact.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -239,6 +310,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +325,53 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805041352404_InitialMigration.resx">
+      <DependentUpon>201805041352404_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041507548_AddMembershipTypeToTable.resx">
+      <DependentUpon>201805041507548_AddMembershipTypeToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041534178_AddRecordToMembershipTypeTable.resx">
+      <DependentUpon>201805041534178_AddRecordToMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051316207_AddNameColumnToMembershipTypeTable.resx">
+      <DependentUpon>201805051316207_AddNameColumnToMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051331149_UpdateRecordInMembershipTypeTable.resx">
+      <DependentUpon>201805051331149_UpdateRecordInMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051343167_AddBirthDateColumnToCustomerTable.resx">
+      <DependentUpon>201805051343167_AddBirthDateColumnToCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051530543_CommitChangesToDatabase.resx">
+      <DependentUpon>201805051530543_CommitChangesToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051538043_AddRecordToGenreTable.resx">
+      <DependentUpon>201805051538043_AddRecordToGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051609207_AddColumnsToMovieTable.resx">
+      <DependentUpon>201805051609207_AddColumnsToMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805061056302_UpdateNameColumnInCustomerTable.resx">
+      <DependentUpon>201805061056302_UpdateNameColumnInCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805061118377_ChangeNameColumn.resx">
+      <DependentUpon>201805061118377_ChangeNameColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805061153317_UpdateOfColumnInCustomerTable.resx">
+      <DependentUpon>201805061153317_UpdateOfColumnInCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805061255263_UpdateReordInMembershipTypeTable.resx">
+      <DependentUpon>201805061255263_UpdateReordInMembershipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805071336278_ChangeNameColumnInMovieTable.resx">
+      <DependentUpon>201805071336278_ChangeNameColumnInMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805071417232_AddGenreIdColumnToMovieTable.resx">
+      <DependentUpon>201805071417232_AddGenreIdColumnToMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
